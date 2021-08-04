@@ -1,0 +1,33 @@
+//Task 4
+// Here we code the program that trying to guess the number we considered. The number mustn't be more than 7.
+
+#include <iostream>
+#include <string>
+
+int main() {
+    int low = 0;
+    int high = 100;
+    int middle=(low+high)/2;
+    char choice;
+    int TrueNum=100;
+
+    std::cout << "Please guess the number" << std::endl;
+    for (int i = 1; i <= 7; i++) {
+        std::cout << "Step No." << i << ". Is your number equal or bigger than " << middle << "?" << std::endl;
+        std::cin >> choice;
+        if (choice == 'y') {
+            low = middle;
+            middle = (low + high) / 2;
+        }
+        if (choice == 'n') {
+            high = middle;
+            middle = (low + high) / 2;
+        }
+    }
+    if (choice == 'n') TrueNum = low;
+    else if (choice == 'y') TrueNum = high-1;
+    std::cout << "you meant number " << TrueNum;;
+
+
+    return 0;
+}
