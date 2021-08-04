@@ -1,0 +1,54 @@
+//p.169. Tasks 2-3 
+//In task 2 we need to find a median of range of some numbers (i named them "temperature").
+//Task 3 requires us to find min, max numbers of a row, their average and count their sum up.
+
+// Task 1 was completed earlier, but i lost its code and now i have no time to make it again.
+
+#include <iostream>
+#include <vector>
+
+int main() {
+    double temp;
+    double median;
+    double sum = 0;
+    double max, min;
+
+    double x;
+    std::vector <double> temperature;
+    for (; std::cin >> temp;) {
+        temperature.push_back(temp);
+    }
+
+    for (int i = 0; i < temperature.size(); i++) {
+        for (int j = 0; j < temperature.size() - i - 1; j++) {
+            if (temperature[j] > temperature[j + 1]) {
+                x = temperature[j];
+                temperature[j] = temperature[j + 1];
+                temperature[j + 1] = x;
+            }
+        }
+    }
+    if (temperature.size() % 2 == 0) {
+        median = (temperature[temperature.size() / 2] + temperature[temperature.size() / 2 - 1]) / 2;
+    }
+    else (median = temperature[temperature.size() / 2 + 1]);
+    std::cout << "median is: " << median << std::endl;
+
+
+    std::cout << std::endl;
+    max = min = temperature[0];
+    for (int i = 1; i < temperature.size(); i++) {
+        if (temperature[i] < temperature[i - 1])
+            min = temperature[i];
+        if (temperature[i] > temperature[i - 1])
+            max = temperature[i];
+        sum = sum + temperature[i];
+    }
+
+    for (int i = 0; i < temperature.size(); i++) {
+        std::cout << temperature[i] << " ";
+    }
+
+    std::cout << "\n" << "minimum is: " << min << "\n" << "maximum is: " << max << "\n" << "sum is: " << sum << "\n" << "average is: " << sum / temperature.size() << "\n";
+    return 0;
+}
