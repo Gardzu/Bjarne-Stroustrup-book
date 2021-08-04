@@ -1,0 +1,65 @@
+//task 7
+//Here I modify the simplest calculator from the task 5. 
+//My purpose here is to make it more intelligent, so it will be able to take words for calculations.
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main() {
+    char operation;
+    double x;
+    double y;
+    std::string s1;
+    std::string s2;
+   // std::vector <std::string> number{ "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+    std::cout << "input X,Y,operator:\n";
+    std::cin >> s1 >> s2 >> operation;
+    
+    if (s1 == "zero" || s1 == "0") x = 0;
+    if (s2 == "zero" || s2 == "0") y = 0;
+
+    if (s1 == "one" || s1 == "1") x = 1;
+    if (s2 == "one" || s2 == "1") y = 1;
+
+    if (s1 == "two" || s1 == "2") x = 2;
+    if (s2 == "two" || s2 == "2") y = 2;
+
+    if (s1 == "three" || s1 == "3") x = 3;
+    if (s2 == "three" || s2 == "3") y = 3;
+
+    if (s1 == "four" || s1 == "4") x = 4;
+    if (s2 == "four" || s2 == "4") y = 4;
+
+    if (s1 == "five" || s1 == "5") x = 5;
+    if (s2 == "five" || s2 == "5") y = 5;
+
+    if (s1 == "six" || s1 == "6") x = 6;
+    if (s2 == "six" || s2 == "6") y = 6;
+
+    if (s1 == "seven" || s1 == "7") x = 7;
+    if (s2 == "seven" || s2 == "7") y = 7;
+
+    if (s1 == "eight" || s1 == "8") x = 8;
+    if (s2 == "eight" || s2 == "8") y = 8;
+
+    if (s1 == "nine" || s1 == "9") x = 9;
+    if (s2 == "nine" || s2 == "9") y = 9;
+   
+
+    switch (operation) {
+    case '+':
+        std::cout << "\nThe sum of " << x << " and " << y << " is " << x + y;
+        break;
+    case '-':
+        std::cout << "\nThe differentiation of " << x << " and " << y << "is " << x - y;
+        break;
+    case '*':
+        std::cout << "\nThe multiplication of " << x << " and " << y << "is " << x * y;
+        break;
+    case '/':
+        std::cout << "\nThe division of " << x << " and " << y << " is " << x / y;
+        break;
+    }
+    return 0;
+}
