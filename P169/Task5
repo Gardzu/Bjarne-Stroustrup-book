@@ -1,0 +1,28 @@
+// task 5
+// I am tasked to build the simplest calculator, that knows how to add, multiply, divide and subtract
+
+#include <iostream>
+
+int main() {
+    char operation;
+    double x;
+    double y;
+    std::cout << "input X,Y,operator:\n";
+    std::cin >> x >> y >> operation;
+    switch (operation) {
+        case '+':
+            std::cout << "\nThe sum of " << x << " and " << y << " is " << x + y;
+            break;
+        case '-':
+            std::cout << "\nThe differentiation of " << x << " and " << y << "is " << x - y;
+            break;
+        case '*':
+            std::cout << "\nThe multiplication of " << x << " and " << y << "is " << x * y;
+            break;
+        case '/':
+            std::cout << "\nThe division of " << x << " and " << y << " is " << x / y;
+            break;
+    }
+
+    return 0;
+}
