@@ -1,0 +1,16 @@
+//task 6
+// Here I translate the words of numbers in digits theirselves.
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main() {
+    std::vector <std::string> number { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+    int x;
+    std::cout << "what number do you want to translate?\n";
+    std::cin >> x >> number;
+    //std::cout << number.size();
+    std::cout << "you inputted number " << number[x] << << "\n";
+    return 0;
+}
