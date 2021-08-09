@@ -1,0 +1,52 @@
+//task 8-9
+//The tasks are related with legendary problem of wheat and chess (https://en.wikipedia.org/wiki/Wheat_and_chessboard_problem)
+// On the task 8 I am trying to find the closest sum of wheat grains that is bigger than Goal number. Also I show the step where this sum has been gotten on.
+// On the task 9 my goal is to reach the limit of a Double type number and point the step where i got it on.
+//I deliberately created function of a Task 9 with using of a function prototype.
+
+
+#include <iostream>
+#include <vector>
+#include <math.h>
+
+void task_eight(void) {
+    int step; //counter
+    std::vector <int> currentnumber(64);
+    currentnumber[0] = 1;
+    int sum=1;
+    int goal = 1000;
+    std::cout << "Task 8:\n";
+    for (step = 1; sum <= goal; step++) {
+        currentnumber[step] = currentnumber[0] * pow(2, step);
+        sum = sum + currentnumber[step];
+        std::cout << "\n" << currentnumber[step];
+    }
+    std::cout << "\nOn a step No. " << step << " we get a sum that is closest biggest to the goal. The sum is " << sum;
+}
+
+void task_nine(void);
+
+
+int main() {
+    task_eight();
+    task_nine();
+    
+    return 0;
+}
+
+void task_nine(void) {
+    int step; //counter
+    std::vector <int> currentnumber(64);
+    currentnumber[0] = 1;
+    double sum=1;
+    int goal = 1000;
+    std::cout << "\n\n========\nTask 9: \n";
+    std::cout << "\n" << "1 - " << currentnumber[0];
+    for (step = 1; step <64; step++) {
+        currentnumber[step] = currentnumber[0] * pow(2, step);
+        sum = sum + currentnumber[step];
+        std::cout << "\n" << step+1 << " - " << currentnumber[step];
+        if (currentnumber[step] == currentnumber[step - 1]) break;
+    }
+    std::cout << "\n\nWe see that on the step No. " << step << " we reach the limit of the double data type that is " << sum;
+}
