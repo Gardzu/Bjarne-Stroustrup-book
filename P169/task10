@@ -1,0 +1,29 @@
+// task 10
+//Here I needed to design Rock-Paper-Scissors simulator that makes his choices undependently with the player.
+
+#include <iostream>
+#include <ctime>
+
+int main() {
+    int player_choice;
+    int game_choice;
+    std::cout << "what do you choose? 1 - scissors; 2 - stone; 3 - paper?\n";
+    std::cin >> player_choice;
+    srand(time(0));
+    game_choice = rand() %3+1;
+
+    if (player_choice == 1 && game_choice == 1) std::cout << "draw";
+    if (player_choice == 1 && game_choice == 2) std::cout << "you lose";
+    if (player_choice == 1 && game_choice == 3) std::cout << "congrats";
+
+    if (player_choice == 2 && game_choice == 1) std::cout << "congrats";
+    if (player_choice == 2 && game_choice == 2) std::cout << "draw";
+    if (player_choice == 2 && game_choice == 3) std::cout << "you lose";
+
+    if (player_choice == 3 && game_choice == 1) std::cout << "you lose";
+    if (player_choice == 3 && game_choice == 2) std::cout << "congrats";
+    if (player_choice == 3 && game_choice == 3) std::cout << "draw";
+    
+
+    return 0;
+}*/
