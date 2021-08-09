@@ -1,0 +1,33 @@
+//Task 15
+//The task slightly differs from the 11-14 ones because here I see another principle of finding the numbers. My goal here was to find n first prime numbers.
+
+#include <iostream>
+#include <vector>
+
+int Primes(int starting, int max) {
+    std::vector <int> storage;
+    for (int i = starting; i <= max; i++) {
+
+        if (i != 1 && (i == 2 || i == 3 || i == 5 || i == 7 || (i % 1 == 0
+            && i % 2 != 0 && i % 3 != 0 && i % 4 != 0
+            && i % 5 != 0 && i % 6 != 0 && i % 7 != 0
+            && i % 8 != 0 && i % 9 != 0 && i % i == 0))) {
+            storage.push_back(i);
+        }
+    }
+    for (unsigned int i = 0; i < storage.size(); i++) {
+        std::cout << storage[i] << "  ";
+    }
+    return 0;
+}
+
+int main() {
+    int limit;
+    int start;
+    std::cout << "input start point\n";
+    std::cin >> start;
+    std::cout << "input the limit: \n";
+    std::cin >> limit;
+    Primes(start, limit);
+    return 0;
+}
