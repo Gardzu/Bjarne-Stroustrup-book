@@ -29,4 +29,3 @@ int main() {
     Primes(limit);
     return 0;
 }
-*/
