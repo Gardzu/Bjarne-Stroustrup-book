@@ -1,0 +1,49 @@
+//Quadratic equation. My first challengable task because there was much of work with exceptions (like "what if A is 0, or B=0" etc.). 
+#include <math.h>
+#include <iostream>
+
+int main () {
+    int A,B,C;
+    
+    std::cout << "There is your quadratic equation of type (A*X^2)+(B*X)+C=0\n";
+    std::cout<< "input A:";
+    std::cin >> A;
+    std::cout<< "input B:";
+    std::cin >> B;
+    std::cout<< "input C:";
+    std::cin >> C;
+    
+    if (A==0) {
+        std::cout<< "X equals: " <<(-1*C)/B;
+        return 0;
+    }
+    
+    if (B==0) {
+        if ((-1*C/A)<0) std::cout << "There is no solution here" << std::endl;
+        else if ((-1*C/A)>0) std::cout << "X1 and X2 equal: " << (sqrt(-1*C/A)) << " and " << (-1*(sqrt(-1*C/A))) <<std::endl;
+        else std::cout<< "X1 and X2 are equal and amount 0" << std::endl;
+        return 0;
+    }
+    
+    if (C==0) {
+        std::cout<< "X1 is 0 and X2 is " << (-1*(B/A)) << std::endl;
+        return 0;
+    }
+        
+    double discriminant;
+    discriminant=(B*B)-4*A*C;
+    if (discriminant > 0) {
+        double x1;
+        double x2;
+        x1=(-B+sqrt(discriminant)) / (2*A);
+        x2=(-B-sqrt(discriminant)) / (2*A);
+        std::cout << "X1 is: " << x1 << " and X2 is: " << x2 <<std::endl;
+    }
+    else if (discriminant < 0) std::cout << "There is no solution here" <<std::endl;
+    else if (discriminant == 0) {
+        double x1;
+        x1=(-B+sqrt((double) discriminant)) / (2*A);
+        std::cout << "X1 and X2 are equal and amount " << x1 <<std::endl;
+    }
+    return 0;
+}
