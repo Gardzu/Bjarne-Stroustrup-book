@@ -1,0 +1,35 @@
+// This task is almost similar to task 16 done earlier. The program below is trying to find minimal string, maximal string and mode string.
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main() {
+    std::vector <std::string> lines;
+    std::string templines;
+    std::cout << "input string you wanted to: \n";
+    for (; std::cin >> templines;) {
+        lines.push_back(templines);
+    }
+
+    std::string linemax = lines[0];
+    std::string linemin = lines[0];
+    std::string linemode;
+    std::string linemodecount = 1;
+    std::string complinemodecount = 1;
+    for (int i = 0; i < lines.size(); i++) {
+        if (lines[i] > linemax) linemax = lines[i];
+        if (lines[i] < linemin) linemin = lines[i];
+        for (int j = 1; j < lines.size(); j++) {
+            if (lines[i] == lines[j]) linemodecount++;
+            if (linemodecount > complinemodecount) {
+                complinemodecount = linemodecount;
+                linemode = lines[i];
+            }
+
+        }
+    }
+    std::cout << "\n\nASCII linemax is: " << linemax << " and ASCII linemin is: " << linemin << " .Also the mode is: " << linemode << std::endl;
+
+
+    return 0;
