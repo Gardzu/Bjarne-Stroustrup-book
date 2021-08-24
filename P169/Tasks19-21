@@ -1,0 +1,103 @@
+//I have combined tasks from 19 to 21 because each next complemented the last one. 
+// I tried to make two sets of name of some pupil and his/her score somewhere. Input stops after user enters "noname 0". 
+// At the end the program prints every pair in a console.
+
+// In the task 20 I added the function that shows user score of some pupil or output error.
+
+// In the task 21 my program was modified again and now shows its user names of pupils which have the same score as he/she wrote.
+
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+
+
+void printing(std::vector <int> scores, std::vector <std::string> names) {
+    for (unsigned int i = 0; i < scores.size(); i++) {
+        std::cout << "\n [" << i + 1 << "]. " << names[i] << " - " << scores[i];
+    }
+    std::cout << std::endl << std::endl;
+}
+
+bool comparing(std::string namebank, std::vector<std::string> names) {
+    for (unsigned int i = 0; i < names.size(); i++) {
+        if (namebank == names[i]) {
+            std::cout << "\nthis name was already written in. Please try again!" << std::endl;
+            return false;
+        }
+    }
+    return true;
+}
+
+// task 20
+void scorefinder(std::string namebank, std::vector<std::string> names, std::vector <int> scores) {
+    std::cout << "whose score do you want to get? Input a name: \n";
+    std::cin >> namebank;
+    bool count = 0;
+    for (unsigned int i = 0; i < names.size(); i++) {
+        if (namebank == names[i]) {
+            count = 1;
+            std::cout << "Pupil " << namebank << " has " << scores[i] << " points" << std::endl;
+            break;
+        }
+    }
+    if (count == 0) {
+        std::cout << "There is no such pupil in this list" << std::endl;
+    }
+}
+
+
+void pupilfinder(int scoresbank, std::vector<std::string> names, std::vector <int> scores) {
+    std::cout << "\nInput a score you want to find among pupils: \n";
+    std::cin >> scoresbank;
+    int j = 0;
+
+    for (unsigned int i = 0; i < scores.size(); i++) {
+        if (scoresbank == scores[i]) {
+            j++;
+            std::cout << " has pointed score" << std::endl << names[i];
+        }
+    }
+
+    if (j == 0)
+        std::cout << "There is no such pupil in this list" << std::endl;
+}
+
+
+
+
+int main() {
+    std::string namebank;
+    int scoresbank;
+
+    std::vector <std::string> names;
+    std::vector <int> scores;
+
+    std::cout << "input name and score: \n";
+    while (std::cin >> namebank >> scoresbank) {
+        if (namebank == "noname") {
+            scoresbank = 0;
+            break;
+        }
+        if (names.size() == 0) {
+            names.push_back(namebank);
+            scores.push_back(scoresbank);
+        }
+        else {
+            if (comparing(namebank, names)) {
+                names.push_back(namebank);
+                scores.push_back(scoresbank);
+            }
+        }
+    }
+
+    printing(scores, names);
+
+    //task 20
+    scorefinder(namebank, names, scores);
+    //task 21
+    pupilfinder(scoresbank, names, scores);
+
+    return 0;
+}
