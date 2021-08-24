@@ -1,0 +1,41 @@
+// Here i am trying to code a program that finds extremums and mode of some array of positive numbers.
+
+#include <iostream>
+#include <vector>
+
+void InputVector(std::vector <int> &numbers) {
+    int x;
+    std::cout << "input numbers!\n";
+    for (; std::cin >> x;) {
+        numbers.push_back(x);
+    }
+}
+
+void FindMode(std::vector <int> numbers)
+{
+    int realmodecount=1;
+    int realmodevalue=1;
+
+    int modecount;
+    for (int i = 0; i < numbers.size(); i++) {
+        modecount = 1;
+        for (int j = 1; j < numbers.size(); j++) {
+            if (numbers[i] == numbers[j]) modecount++;
+            if (modecount > realmodecount) {
+                realmodecount = modecount;
+                realmodevalue = numbers[i];
+            }
+        }        
+    }
+    std::cout << numbers.size() << std::endl;
+    std::cout << "\nmode is: " << realmodevalue << " encounting " << realmodecount << " times.";
+}
+
+
+int main() {
+    int mode;
+    std::vector <int> numbers;
+    InputVector(numbers);
+    FindMode(numbers);
+    return 0;
+}
