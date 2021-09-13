@@ -1,0 +1,23 @@
+//This task is almost similar to previous one but does opposite thing: it converts Kelvin degrees to Celsius.
+
+#include <iostream>
+
+double ktoc (double k) {
+    int c = k - 273.15;
+    return c;
+}
+
+int main () {
+    double k;
+    std::cout << "input a temperature in Kelvin \n";
+    std::cin >> k;
+    try {
+        if (k<0) throw 1;
+        double c = ktoc(k) ;
+        std::cout << "The temperature is " << c << " Celsius degree!\n";
+    }
+    catch(int) {
+        std::cerr << "Error! The temperature is less than absolute zero!\n";
+    }
+    return 0;
+}
