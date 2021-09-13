@@ -1,0 +1,78 @@
+//I really love such tasks!
+//Here I tried to create a program that can solve quadratic equation. It looks like task on the p.169,
+//but you may notice that it divided to separate functions. Unfortunately, I still have some troubles with functions,
+//but it is ok for now.
+
+#include <iostream>
+#include <math.h>
+#include <string>
+
+double FindX(double d, double a, double b, double c) {
+     if (d > 0) {
+        double x1;
+        double x2;
+        x1 = (-b + sqrt(d)) / (2 * a);
+        x2 = (-b - sqrt(d)) / (2 * a);
+        std::cout << "X1 is: " << x1 << " and X2 is: " << x2 << std::endl;
+     } else {
+        double x1;
+        x1 = (-b + sqrt((double)d)) / (2 * a);
+        std::cout << "X1 and X2 are equal and AAAAA amount " << x1 << std::endl;
+        return 0;
+    }
+    return 0;
+}
+
+double Discriminant(double d,double a, double b, double c) {
+    try {
+        d = b * b - 4 * a * c;
+        if (d < 0) throw 1;
+        else FindX(d, a, b, c);
+    }
+    catch (int) {
+        std::cerr << "Error! There is no solution here\n";
+    }
+    
+    return 0;
+}
+
+int FuncSelect(double d, double a, double b, double c) {
+    if (a == 0) {
+        std::cout << "X equals: " << (-1 * c) / b;
+        return 0;
+    }
+
+    if (b == 0) {
+        if ((-1 * c / a) < 0) std::cout << "There is no solution here" << std::endl;
+        else if ((-1 * c / a) > 0) std::cout << "X1 and X2 equal: " << (sqrt(-1 * c / a)) << " and " << (-1 * (sqrt(-1 * c / a))) << std::endl;
+        else std::cout << "X1 and X2 are equal and amount 0" << std::endl;
+        return 0;
+    }
+
+    if (c == 0) {
+        std::cout << "X1 is 0 and X2 is " << (-1 * (b / a)) << std::endl;
+        return 0;
+    }
+
+    Discriminant(d, a, b, c);
+    return 0;
+}
+
+void Input(double* a, double* b, double* c) {
+    std::cout << "The equation looks like A*X^2+B*X+C=0\n";
+    std::cout << "Please input your A\n";
+    std::cin >> *a;
+    std::cout << "Please input your B\n";
+    std::cin >> *b;
+    std::cout << "Please input your C\n";
+    std::cin >> *c;
+}
+
+int main() {
+    double a, b, c;
+    static double d;
+    Input(&a, &b, &c);
+    FuncSelect(d, a, b, c);
+
+    return 0;
+}
