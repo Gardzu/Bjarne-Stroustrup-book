@@ -1,0 +1,24 @@
+//This task unexpectedly should convert Fehrenheit degrees to Celsius. Easy.
+ #include <iostream>
+
+ double ctof(double c) {
+     try {
+         if (c<-273.15) throw 1;
+         double f;
+         f=c*1.8+32;
+         return f;
+     }
+     catch(int) {
+         std::cerr << "Error! The temperature is less than absolute zero\n";
+         return 0;
+     }
+ }
+
+ int main() {
+     double c;
+     std::cout << "Input your temperature in Celsius\n";
+     std::cin >> c;
+     double f = ctof(c);
+     std::cout << "Fahrenheit degrees equal " << f << std::endl;
+     return 0;
+ }
